@@ -6,7 +6,7 @@
 /*   By: abao <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/29 14:40:00 by abao              #+#    #+#             */
-/*   Updated: 2018/08/07 15:21:33 by abao             ###   ########.fr       */
+/*   Updated: 2018/08/07 15:43:59 by abao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,19 @@
 ** Return: 1 if all good, 0 if incorrect input.
 */
 
-/* static int	check_adjacent(char *tet, int a)
+static int	check_adjacent(char **tet, int a, int b)
 {
-	Add code later
+	int		c;
+	if (tet[a + 1][b] == '#')
+		c++;
+	if (tet[a - 1][b] == '#')
+		c++;
+	if (tet[a][b + 1] == '#')
+		c++;
+	if (tet[a][b - 1] == '#')
+		c++;
+	return (c);
 } 
-*/
 
 int	verify(char** tets)
 {
@@ -50,6 +58,7 @@ int	verify(char** tets)
 			if (tets[num][place] == '#')
 			{
 				hastags++;
+				connect = connect + check_adjacent(tets, num, place);
 			}
 			place++;
 		}
