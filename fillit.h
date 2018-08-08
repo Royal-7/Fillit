@@ -6,7 +6,7 @@
 /*   By: abao <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/28 12:11:14 by abao              #+#    #+#             */
-/*   Updated: 2018/08/03 17:11:37 by abao             ###   ########.fr       */
+/*   Updated: 2018/08/07 18:21:22 by abao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct	s_tet
 	char			letter;
 	int				width;
 	int				height;
+	struct t_tet	*next;
 }				t_tet;
 
 typedef struct	s_map

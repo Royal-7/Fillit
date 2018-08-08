@@ -6,7 +6,7 @@
 /*   By: abao <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 17:31:35 by abao              #+#    #+#             */
-/*   Updated: 2018/08/03 14:27:04 by abao             ###   ########.fr       */
+/*   Updated: 2018/08/07 17:04:09 by abao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 int	main (int n, char **args)
 {
 	char	*original;
-	char	**tets;
+	char	**tets
 	size_t	num;
 	int		filedes;
 	t_tet	*pieces;

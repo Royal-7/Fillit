@@ -1,36 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   assign.c                                           :+:      :+:    :+:   */
+/*   tet_new.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abao <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/01 13:15:12 by abao              #+#    #+#             */
-/*   Updated: 2018/08/07 18:51:40 by abao             ###   ########.fr       */
+/*   Created: 2018/08/07 18:51:56 by abao              #+#    #+#             */
+/*   Updated: 2018/08/07 19:40:25 by abao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** This function assigns the tets into a struct array. After verify? or verify this?
-** Param: tets.
-** Return: The struct array?
- */
+** Creates a new link on the t_tet list.
+*/
 
-#include <stdlib.h>
-
-t_tets	*assign(char **tets)
+t_tets	*tet_new(void *content)
 {
-	t_tets	*list;
-	char	letter;
 
-	list = (t_tets *)malloc(sizeof(t_list));
-	list
-	letter = 'A';
-	while (tets)
-	{
-		list->letter = letter;
-		letter++;
-
-	}
-	return (list);
 }
