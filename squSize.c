@@ -6,7 +6,7 @@
 /*   By: abao <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/27 17:34:28 by abao              #+#    #+#             */
-/*   Updated: 2018/08/09 19:03:14 by abao             ###   ########.fr       */
+/*   Updated: 2018/08/09 19:22:57 by abao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,24 @@
 
 #include "fillit.h"
 
+void	placeBlock(t_tet *tets, int len)
+{
+
+}
+
 void	squSize(t_tet *tets)
 {
 	int		total;
 	int		length;
+	int		correct;
 
 	total = 0;
+	correct = 0;
 	while (tets)
 		total++;
 	length = sqrt(total * 4);
-	//Insert solver here.
+	while (correct != 1)
+	{
+
+	}
 }
