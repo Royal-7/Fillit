@@ -6,13 +6,15 @@
 /*   By: abao <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/16 15:22:01 by abao              #+#    #+#             */
-/*   Updated: 2018/08/21 15:19:43 by abao             ###   ########.fr       */
+/*   Updated: 2018/08/21 17:01:51 by abao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 ** The recursive function to put the pieces in the map. What need for each?
-** Try function: takes the map and list of pieces to work with.
+** Try function: takes the map and list of pieces to work with. Feeds 
+** the pieces into the backtracking function. Or should backtracking do
+** that itself? Starts the recursion.
 ** Param: tmap, ttet*
 ** Return: map
 ** Backtracking function: takes the map and specific tet to put in. 
@@ -25,35 +27,46 @@
 ** Where to account for need size increase?
 */
 
+int		check(t_map map, t_tet tet, int x, int y)
+{
+	int	c;
+
+	c = 0;
+	while (c < 4)
+	{
+		if (map->field[x + tet->point[c]->x][y + tet->point[c]->y] == '.')
+			c++;
+		else
+			return (0);
+	}
+	return (1);
+}
+
 int		backtrack(t_map map, t_tet tet, int x, int y)
 {
-	int	four;
-
-	four = 0;
-	while (four < 4)
+	int	c;
+	if (check(map, tet, x, y) = 1)
 	{
-		if (map->field[x][y] == '.')
+		while (c < 4)
 		{
-			
+			map->field[x + tet->point[c]->x][y + tet->point[c]->y] = tet->letter;
+			c++;
 		}
-		//if failure
-		{
-			undo(map, tet->letter);
-			return (0);
-		}
-		four++;
 	}
-	while (x < map->size)
+	else
 	{
-		y = 0;
-		while (y < map->size)
+		while (x < map->size)
 		{
-			 (backtrack(map, &tets, x, y));
-			y++;
+			while (y < map->size)
+			{
+				if (backtrack(map, tet, x, y) == 1)
+					return (1);
+				y++;
+			}
+			x++;
+			y = 0;
 		}
-		x++;
 	}
-
 	return (0);
 }
 
@@ -61,10 +74,12 @@ int		try(t_map map, t_tet *tets)
 {
 	int	x;
 	int	y;
-	int	correct;
+	int sol;
+	
+	while (tets->next != NULL)
+	{
 
-	correct = 0;
-
+	}
 	return (0);
 }
 
