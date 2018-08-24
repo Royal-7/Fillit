@@ -6,7 +6,7 @@
 /*   By: abao <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/16 15:22:01 by abao              #+#    #+#             */
-/*   Updated: 2018/08/23 18:51:12 by abao             ###   ########.fr       */
+/*   Updated: 2018/08/23 19:07:34 by abao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ int		check(t_map map, t_tet tet, int x, int y)
 int		backtrack(t_map map, t_tet tet, int x, int y)
 {
 	int	c;
+
+	c = 0;
 	if (check(map, tet, x, y) == 1)
 	{
 		while (c < 4)
@@ -77,7 +79,7 @@ int		try(t_map map, t_tet *tets)
 	int	num;
 	
 	num = 0;
-	while (tets[num])
+	while (tets[num] != NULL)
 	{
 		if (backtrack(map, tets[num], 0, 0) == 0)
 			return (0);
