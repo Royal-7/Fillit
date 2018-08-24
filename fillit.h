@@ -6,7 +6,7 @@
 /*   By: abao <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/28 12:11:14 by abao              #+#    #+#             */
-/*   Updated: 2018/08/23 15:31:01 by abao             ###   ########.fr       */
+/*   Updated: 2018/08/23 19:24:58 by abao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ typedef struct		s_tet
 	int				total;
 	t_point			point[4];
 //	t_tetro			body;
-//	struct t_tet	*next;
+	struct t_tet	*next;
 }					t_tet;
 
 
@@ -65,5 +65,9 @@ t_tet				*tet_new(void *content);
 char				**ft_strsplit(char const *s, char splitchars);
 void				ft_putstr(char const *s);
 char				**read_file(char *input);
+int					check(t_map map, t_tet tet, int x, int y);
+int					backtrack(t_map map, t_tet tet, int x, int y);
+int					try(t_map map, t_tet *tets);
+t_map				undo(t_map map, char letter);
 
 #endif
