@@ -6,7 +6,7 @@
 /*   By: abao <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/16 15:22:01 by abao              #+#    #+#             */
-/*   Updated: 2018/08/21 17:01:51 by abao             ###   ########.fr       */
+/*   Updated: 2018/08/23 18:51:12 by abao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@
 ** Where to account for need size increase?
 */
 
+#include "fillit.h"
+
 int		check(t_map map, t_tet tet, int x, int y)
 {
 	int	c;
@@ -34,7 +36,7 @@ int		check(t_map map, t_tet tet, int x, int y)
 	c = 0;
 	while (c < 4)
 	{
-		if (map->field[x + tet->point[c]->x][y + tet->point[c]->y] == '.')
+		if (map.field[x + tet.point[c].x][y + tet.point[c].y] == '.')
 			c++;
 		else
 			return (0);
@@ -45,19 +47,19 @@ int		check(t_map map, t_tet tet, int x, int y)
 int		backtrack(t_map map, t_tet tet, int x, int y)
 {
 	int	c;
-	if (check(map, tet, x, y) = 1)
+	if (check(map, tet, x, y) == 1)
 	{
 		while (c < 4)
 		{
-			map->field[x + tet->point[c]->x][y + tet->point[c]->y] = tet->letter;
+			map.field[x + tet.point[c].x][y + tet.point[c].y] = tet.letter;
 			c++;
 		}
 	}
 	else
 	{
-		while (x < map->size)
+		while (x < map.size)
 		{
-			while (y < map->size)
+			while (y < map.size)
 			{
 				if (backtrack(map, tet, x, y) == 1)
 					return (1);
@@ -72,15 +74,16 @@ int		backtrack(t_map map, t_tet tet, int x, int y)
 
 int		try(t_map map, t_tet *tets)
 {
-	int	x;
-	int	y;
-	int sol;
+	int	num;
 	
-	while (tets->next != NULL)
+	num = 0;
+	while (tets[num])
 	{
-
+		if (backtrack(map, tets[num], 0, 0) == 0)
+			return (0);
+		num++;
 	}
-	return (0);
+	return (1);
 }
 
 t_map	undo(t_map map, char letter)
@@ -88,12 +91,12 @@ t_map	undo(t_map map, char letter)
 	int	x;
 	int	y;
 
-	while (x < map->size)
+	while (x < map.size)
 	{
-		while (y < map->size)
+		while (y < map.size)
 		{
-			if (map->field[x][y] == letter)
-				map->field[x][y] = '.';
+			if (map.field[x][y] == letter)
+				map.field[x][y] = '.';
 			y++;
 		}
 		y = 0;

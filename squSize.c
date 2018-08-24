@@ -6,7 +6,7 @@
 /*   By: abao <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/27 17:34:28 by abao              #+#    #+#             */
-/*   Updated: 2018/08/16 18:10:24 by abao             ###   ########.fr       */
+/*   Updated: 2018/08/23 18:28:06 by abao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,11 @@ t_map	squSize(t_tet *tets)
 	while ((length * length) < area)
 		length++;
 	map = (t_map)malloc(sizeof(t_map));
-	map->size = length;
-	map->field = makeArray(length);
-	recursion(map, tets);
+	map.size = length;
+	map.field = makeArray(length);
+	while (try(map, tets) == 0)
+	{
+		//Add clean and remake map functions
+	}
+	//Function to print map
 }

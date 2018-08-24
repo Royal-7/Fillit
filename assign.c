@@ -6,7 +6,7 @@
 /*   By: abao <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 13:15:12 by abao              #+#    #+#             */
-/*   Updated: 2018/08/21 15:25:10 by abao             ###   ########.fr       */
+/*   Updated: 2018/08/23 18:50:38 by abao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,33 +25,50 @@ t_tet	*assign(char **tets)
 	int		x;
 	int		y;
 	int		four;
+	int		fx;
+	int		fy;
+	int		listnum;
 
 	x = 0;
 	y = 0;
 	four = 0;
-	list = (t_tet *)malloc(sizeof(t_list));
+	list = (t_tet *)malloc(26 * sizeof(t_tet));
 	letter = 'A';
-	list->point[four]->x = 0;
-	list->point[four]->y = 0;
+	listnum = 0;
 	while (tets[x])
 	{
 		while (tets[x][y] != '\0')
 		{
 			if (tets[x][y] == '#')
 			{
-				tets[x][y] == letter;
-				//Is this correct? doable? Need new xy coords - the first point
-				list->point[four]->x = x - list->point[0]->x;
-				list->point[four]->y = y - list->point[0]->y;
+				fx = x;
+				fy = y;
+				break;
 			}
 			y++;
 		}
-		list->letter = letter;
+		x++;
+		y = 0;
+	}
+	while (tets[x])
+	{
+		while (tets[x][y] != '\0')
+		{
+			if (tets[x][y] == '#')
+			{
+				tets[x][y] = letter;
+				list[listnum].point[four].x = x - fx;
+				list[listnum].point[four].y = y - fy;
+				four++;
+			}
+			y++;
+		}
+		list[listnum].letter = letter;
 		letter++;
-		num++;
 		y = 0;
 		x++;
-		four++;
+		four = 0;
+		listnum++;
 	}
 	return (list);
 }

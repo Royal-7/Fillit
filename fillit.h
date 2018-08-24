@@ -6,14 +6,15 @@
 /*   By: abao <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/28 12:11:14 by abao              #+#    #+#             */
-/*   Updated: 2018/08/19 19:12:47 by abao             ###   ########.fr       */
+/*   Updated: 2018/08/23 15:31:01 by abao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 ** Header file. Contains all functions used, and structs.
 ** Struct for tetrinimos: char/int to use for it, char* for shape
-** 
+** Tets have 4 points, a 2d array. The coords for the upper left is [0, 0]
+** All other points are in reference to that one.
 */
 
 #ifndef FILLIT_H
@@ -46,7 +47,7 @@ typedef struct		s_tet
 	int				total;
 	t_point			point[4];
 //	t_tetro			body;
-	struct t_tet	*next;
+//	struct t_tet	*next;
 }					t_tet;
 
 
