@@ -6,13 +6,13 @@
 /*   By: abao <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/21 15:25:37 by abao              #+#    #+#             */
-/*   Updated: 2018/08/23 19:08:11 by abao             ###   ########.fr       */
+/*   Updated: 2018/08/23 19:40:21 by abao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		map_size(int *list)
+int		map_size(t_tet *list)
 {
 	int size;
 	int sqr;

@@ -6,7 +6,7 @@
 /*   By: abao <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/28 12:11:14 by abao              #+#    #+#             */
-/*   Updated: 2018/08/23 19:24:58 by abao             ###   ########.fr       */
+/*   Updated: 2018/08/23 19:38:11 by abao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,9 @@ int					check(t_map map, t_tet tet, int x, int y);
 int					backtrack(t_map map, t_tet tet, int x, int y);
 int					try(t_map map, t_tet *tets);
 t_map				undo(t_map map, char letter);
+int					map_size(t_tet *list);
+char				**make_map(int size, char **mapy);
+void				free_map(char **map);
+void				print_map(char **map, int size);
 
 #endif
