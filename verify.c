@@ -6,7 +6,7 @@
 /*   By: abao <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/29 14:40:00 by abao              #+#    #+#             */
-/*   Updated: 2018/08/25 17:08:28 by abao             ###   ########.fr       */
+/*   Updated: 2018/08/25 19:18:30 by abao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	verify(char** tets)
 	{
 		while (tets[num][place] != '\0')
 		{
-			if (tets[num][place] != '#' || tets[num][place] != '.')
+			if (tets[num][place] != '#' || tets[num][place] != '.' || tets[num][place] != '\n')
 				return (0);
 			if (tets[num][place] == '#')
 			{
@@ -62,7 +62,7 @@ int	verify(char** tets)
 			}
 			place++;
 		}
-		if (hashtags != 4 || place != 20 || connect != 6)
+		if (hashtags != 4 || place != 21 || connect != 6)
 			return (0);
 		num--;
 		hashtags = 0;
