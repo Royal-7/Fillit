@@ -6,7 +6,7 @@
 /*   By: abao <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/29 14:40:00 by abao              #+#    #+#             */
-/*   Updated: 2018/08/25 19:18:30 by abao             ###   ########.fr       */
+/*   Updated: 2018/08/25 20:36:33 by abao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 ** Return: 1 if all good, 0 if incorrect input.
 ** Segfault in the file. Where?
 */
+
+#include "fillit.h"
 
 int	check_adjacent(char **tet, int a, int b)
 {
@@ -47,22 +49,28 @@ int	verify(char** tets)
 	connect = 0;
 	while (tets[num])
 		num++;
+	num = num - 1;
 	if (num < 1 || num > 26)
 		return (0);
+	printf("how many? %d\n", num);
 	while (num >= 0)
 	{
 		while (tets[num][place] != '\0')
 		{
-			if (tets[num][place] != '#' || tets[num][place] != '.' || tets[num][place] != '\n')
+			if (tets[num][place] != '#' && tets[num][place] != '.' && tets[num][place] != '\n')
 				return (0);
 			if (tets[num][place] == '#')
 			{
 				hashtags++;
 				connect = connect + check_adjacent(tets, num, place);
+				printf("connect count: %d\n", connect);
 			}
 			place++;
 		}
-		if (hashtags != 4 || place != 21 || connect != 6)
+		printf("ht num: %d\n", hashtags);
+		printf("connections: %d\n", connect);
+		printf("place num: %d\n", place);
+		if (hashtags != 4 || place != 16 || connect != 6)
 			return (0);
 		num--;
 		hashtags = 0;

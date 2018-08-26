@@ -6,7 +6,7 @@
 /*   By: abao <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/28 12:11:14 by abao              #+#    #+#             */
-/*   Updated: 2018/08/24 18:39:27 by abao             ###   ########.fr       */
+/*   Updated: 2018/08/25 19:05:44 by abao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void				tet_add(t_tet **list, t_tet *n);
 t_tet				*tet_new(void *content);
 char				**ft_strsplit(char const *s, char splitchars);
 void				ft_putstr(char const *s);
-char				**read_file(char *input);
+char				***read_file(char *input);
 int					check(t_map map, t_tet tet, int x, int y);
 int					backtrack(t_map map, t_tet tet, int x, int y);
 int					try(t_map map, t_tet *tets);
@@ -73,5 +73,6 @@ int					map_size(t_tet *list);
 char				**make_map(int size, char **mapy);
 void				free_map(char **map);
 void				print_map(char **map, int size);
+char				**three_to_two(char ***list);
 
 #endif
