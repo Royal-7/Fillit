@@ -6,7 +6,7 @@
 /*   By: abao <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 17:31:35 by abao              #+#    #+#             */
-/*   Updated: 2018/08/23 19:20:42 by abao             ###   ########.fr       */
+/*   Updated: 2018/08/25 17:15:29 by abao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@
 
 #include "fillit.h"
 
-int	main (int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	char	**tets;
-	t_tet	*pieces;
-	int i;
+//	t_tet	*pieces;
+	int 	i;
 
 	i = 0;
 	if (argc != 2)
@@ -32,19 +32,17 @@ int	main (int argc, char **argv)
 		ft_putstr("usage: fillit input_file\n");
 		return (1);
 	}
-	tets = (char **) malloc(sizeof(char *) * 27);
+	tets = (char **)malloc(sizeof(char *) * 27);
+	write(1, "a\n", 2);
 	tets = read_file(argv[1]);
+	write(1, "b\n", 2);
 	if (verify(tets) != 1)
 	{
 		ft_putstr("error");
 		return (1);
 	}
-	while (tets[i])
-	{
-		printf("%s", tets[i]);
-		i++;
-	}
-	pieces = assign(tets);
-	squSize(pieces);
+	write(1, "c\n", 2);
+//	pieces = assign(tets);
+//	squSize(pieces);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: abao <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/27 17:34:28 by abao              #+#    #+#             */
-/*   Updated: 2018/08/23 19:41:17 by abao             ###   ########.fr       */
+/*   Updated: 2018/08/24 16:47:58 by abao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,21 +47,12 @@ char	**makeArray(int a)
 
 void	squSize(t_tet *tets)
 {
-	int		total;
 	int		length;
-	int		area;
 	t_map	map;
-//Use other map functions for creating.
-	total = 0;
-	length = 1;
-	while (tets)
-		total++;
-	area = total * 4;
-	while ((length * length) < area)
-		length++;
-	map = (t_map)malloc(sizeof(t_map));
+
+	length = map_size(tets);
 	map.size = length;
-	map.field = makeArray(length);
+	map.field = make_map(length, map.field);
 	while (try(map, tets) == 0)
 	{
 		map.size++;

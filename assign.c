@@ -6,15 +6,15 @@
 /*   By: abao <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 13:15:12 by abao              #+#    #+#             */
-/*   Updated: 2018/08/23 18:50:38 by abao             ###   ########.fr       */
+/*   Updated: 2018/08/24 15:22:21 by abao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** This function assigns the tets into a struct array. After verify? or verify this?
+** This function assigns the tets into a struct array.
 ** Param: tets.
 ** Return: The struct array?
- */
+*/
 
 #include "fillit.h"
 
@@ -43,7 +43,7 @@ t_tet	*assign(char **tets)
 			{
 				fx = x;
 				fy = y;
-				break;
+				break ;
 			}
 			y++;
 		}

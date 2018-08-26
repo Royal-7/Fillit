@@ -6,24 +6,24 @@
 /*   By: abao <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/16 15:22:01 by abao              #+#    #+#             */
-/*   Updated: 2018/08/23 19:07:34 by abao             ###   ########.fr       */
+/*   Updated: 2018/08/24 18:16:09 by abao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 ** The recursive function to put the pieces in the map. What need for each?
-** Try function: takes the map and list of pieces to work with. Feeds 
+** Try function: takes the map and list of pieces to work with. Feeds
 ** the pieces into the backtracking function. Or should backtracking do
 ** that itself? Starts the recursion.
 ** Param: tmap, ttet*
 ** Return: map
-** Backtracking function: takes the map and specific tet to put in. 
+** Backtracking function: takes the map and specific tet to put in.
 ** Uses the starting coordinates given and finds the points of the tet
 ** in the map. Sees if they are all empty and fills them in.
-** If all empty, put them in and return success. If not, then 
+** If all empty, put them in and return success. If not, then
 ** return fail so position can increment.
 ** Param:
-** Return: 
+** Return:
 ** Where to account for need size increase?
 */
 
@@ -58,7 +58,6 @@ int		backtrack(t_map map, t_tet tet, int x, int y)
 		}
 	}
 	else
-	{
 		while (x < map.size)
 		{
 			while (y < map.size)
@@ -70,16 +69,15 @@ int		backtrack(t_map map, t_tet tet, int x, int y)
 			x++;
 			y = 0;
 		}
-	}
 	return (0);
 }
 
 int		try(t_map map, t_tet *tets)
 {
 	int	num;
-	
+
 	num = 0;
-	while (tets[num] != NULL)
+	while (tets != NULL)
 	{
 		if (backtrack(map, tets[num], 0, 0) == 0)
 			return (0);
@@ -93,6 +91,8 @@ t_map	undo(t_map map, char letter)
 	int	x;
 	int	y;
 
+	x = 0;
+	y = 0;
 	while (x < map.size)
 	{
 		while (y < map.size)

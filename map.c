@@ -6,7 +6,7 @@
 /*   By: abao <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/21 15:25:37 by abao              #+#    #+#             */
-/*   Updated: 2018/08/23 19:40:21 by abao             ###   ########.fr       */
+/*   Updated: 2018/08/24 18:15:40 by abao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int		map_size(t_tet *list)
 	int sqr;
 
 	size = 0;
-	while (list[size])
+	while (list)
 		size++;
 	sqr = 2;
 	while (sqr * sqr < size * 4)
