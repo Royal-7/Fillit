@@ -6,7 +6,7 @@
 /*   By: abao <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/27 17:34:28 by abao              #+#    #+#             */
-/*   Updated: 2018/08/24 16:47:58 by abao             ###   ########.fr       */
+/*   Updated: 2018/08/26 19:24:49 by abao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,15 @@ char	**makeArray(int a)
 	return (arr);
 }
 
-void	squSize(t_tet *tets)
+void	squSize(t_tet *tets, int num)
 {
 	int		length;
 	t_map	map;
 
-	length = map_size(tets);
+	length = map_size(num);
 	map.size = length;
-	map.field = make_map(length, map.field);
+//	map.field = make_map(length, map.field);
+	printf("test7\n");
 	while (try(map, tets) == 0)
 	{
 		map.size++;

@@ -6,7 +6,7 @@
 /*   By: abao <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/28 12:11:14 by abao              #+#    #+#             */
-/*   Updated: 2018/08/25 19:05:44 by abao             ###   ########.fr       */
+/*   Updated: 2018/08/26 18:50:59 by abao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ typedef struct		s_map
 }					t_map;
 
 int					verify(char **tets);
-void				squSize(t_tet *tets);
+void				squSize(t_tet *tets, int i);
 t_tet				*assign(char **tets);
 void				tet_add(t_tet **list, t_tet *n);
 t_tet				*tet_new(void *content);
@@ -69,10 +69,11 @@ int					check(t_map map, t_tet tet, int x, int y);
 int					backtrack(t_map map, t_tet tet, int x, int y);
 int					try(t_map map, t_tet *tets);
 t_map				undo(t_map map, char letter);
-int					map_size(t_tet *list);
+int					map_size(int n);
 char				**make_map(int size, char **mapy);
 void				free_map(char **map);
 void				print_map(char **map, int size);
 char				**three_to_two(char ***list);
+
 
 #endif

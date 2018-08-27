@@ -6,7 +6,7 @@
 /*   By: abao <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/29 14:40:00 by abao              #+#    #+#             */
-/*   Updated: 2018/08/25 20:36:33 by abao             ###   ########.fr       */
+/*   Updated: 2018/08/26 19:04:10 by abao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ int	check_adjacent(char **tet, int a, int b)
 	int		c;
 
 	c = 0;
-	if ((a < 4) && tet[a + 1][b] == '#')
+	if (tet[a][b + 4] == '#')
 		c++;
-	if ((a > 0) && tet[a - 1][b] == '#')
+	if (tet[a][b - 4] == '#')
 		c++;
-	if ((b < 4) && tet[a][b + 1] == '#')
+	if (tet[a][b + 1] == '#')
 		c++;
-	if ((b > 0) && tet[a][b - 1] == '#')
+	if (tet[a][b - 1] == '#')
 		c++;
 	return (c);
 }
@@ -42,6 +42,7 @@ int	verify(char** tets)
 	int		place;
 	int		hashtags;
 	int		connect;
+	int		count;
 
 	num = 0;
 	place = 0;
@@ -53,6 +54,8 @@ int	verify(char** tets)
 	if (num < 1 || num > 26)
 		return (0);
 	printf("how many? %d\n", num);
+	count = num;
+	num--;
 	while (num >= 0)
 	{
 		while (tets[num][place] != '\0')
@@ -63,19 +66,18 @@ int	verify(char** tets)
 			{
 				hashtags++;
 				connect = connect + check_adjacent(tets, num, place);
-				printf("connect count: %d\n", connect);
 			}
 			place++;
 		}
 		printf("ht num: %d\n", hashtags);
 		printf("connections: %d\n", connect);
 		printf("place num: %d\n", place);
-		if (hashtags != 4 || place != 16 || connect != 6)
+		if (hashtags != 4 || place != 16 || (connect != 6 && connect != 8))
 			return (0);
 		num--;
 		hashtags = 0;
 		place = 0;
 		connect = 0;
 	}
-	return (1);
+	return (count);
 }

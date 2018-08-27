@@ -6,7 +6,7 @@
 /*   By: abao <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 17:31:35 by abao              #+#    #+#             */
-/*   Updated: 2018/08/25 19:29:59 by abao             ###   ########.fr       */
+/*   Updated: 2018/08/26 18:47:44 by abao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int	main(int argc, char **argv)
 	t_tet	*pieces;
 	int 	i;
 
-	i = 0;
 	if (argc != 2)
 	{
 		ft_putstr("usage: fillit input_file\n");
@@ -40,13 +39,15 @@ int	main(int argc, char **argv)
 	tets = three_to_two(three);
 	printf("test3\n");
 	printf("%s\n", tets[0]);
-	if (verify(tets) != 1)
+	i = verify(tets);
+	if (i == 0)
 	{
 		ft_putstr("error");
 		return (1);
 	}
 	printf("test4\n");
 	pieces = assign(tets);
-	squSize(pieces);
+	printf("test5\n");
+	squSize(pieces, i);
 	return (0);
 }

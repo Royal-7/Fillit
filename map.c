@@ -6,23 +6,20 @@
 /*   By: abao <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/21 15:25:37 by abao              #+#    #+#             */
-/*   Updated: 2018/08/24 18:15:40 by abao             ###   ########.fr       */
+/*   Updated: 2018/08/26 19:30:23 by abao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		map_size(t_tet *list)
+int		map_size(int n)
 {
-	int size;
 	int sqr;
 
-	size = 0;
-	while (list)
-		size++;
 	sqr = 2;
-	while (sqr * sqr < size * 4)
+	while ((sqr * sqr) < (n * 4))
 		sqr++;
+	printf("%d\n", sqr);
 	return (sqr);
 }
 
@@ -35,6 +32,8 @@ char	**make_map(int size, char **mapy)
 	free(mapy);
 	map = (char **)malloc(sizeof(char *) * size);
 	i = 0;
+	printf("test6\n");
+	printf("%d\n", size);
 	while (i < size)
 	{
 		map[i] = ft_strnew(size);
