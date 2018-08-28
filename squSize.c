@@ -6,7 +6,7 @@
 /*   By: abao <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/27 17:34:28 by abao              #+#    #+#             */
-/*   Updated: 2018/08/26 19:24:49 by abao             ###   ########.fr       */
+/*   Updated: 2018/08/27 19:54:17 by abao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,16 +49,21 @@ void	squSize(t_tet *tets, int num)
 {
 	int		length;
 	t_map	map;
+	int		pass;
 
 	length = map_size(num);
 	map.size = length;
-//	map.field = make_map(length, map.field);
+	map.field = make_map(length, map.field);
 	printf("test7\n");
-	while (try(map, tets) == 0)
+	pass = try(map, tets, num);
+	if (pass == 0) //Should be while, is if only for testing
 	{
+		print_map(map.field, map.size);
 		map.size++;
 		free_map(map.field);
 		map.field = make_map(map.size, map.field);
+		printf("test8\n");
+		pass = try(map, tets, num);
 	}
 	print_map(map.field, map.size);
 }

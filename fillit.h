@@ -6,7 +6,7 @@
 /*   By: abao <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/28 12:11:14 by abao              #+#    #+#             */
-/*   Updated: 2018/08/26 18:50:59 by abao             ###   ########.fr       */
+/*   Updated: 2018/08/27 19:33:23 by abao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,21 +35,12 @@ typedef struct		s_point
 	int				y;
 }					t_point;
 
-typedef struct		tetro
-{
-	char			**x;
-	char			**y;
-}					t_tetro;
-
 typedef struct		s_tet
 {
 	char			letter;
 	int				total;
 	t_point			point[4];
-//	t_tetro			body;
-	struct t_tet	*next;
 }					t_tet;
-
 
 typedef struct		s_map
 {
@@ -67,7 +58,7 @@ void				ft_putstr(char const *s);
 char				***read_file(char *input);
 int					check(t_map map, t_tet tet, int x, int y);
 int					backtrack(t_map map, t_tet tet, int x, int y);
-int					try(t_map map, t_tet *tets);
+int					try(t_map map, t_tet *tets, int num);
 t_map				undo(t_map map, char letter);
 int					map_size(int n);
 char				**make_map(int size, char **mapy);

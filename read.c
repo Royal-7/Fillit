@@ -6,7 +6,7 @@
 /*   By: cflores- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/14 20:50:46 by cflores-          #+#    #+#             */
-/*   Updated: 2018/08/25 20:18:21 by abao             ###   ########.fr       */
+/*   Updated: 2018/08/27 19:55:22 by abao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ char	***read_file(char *input)
 	filedes = open(input, O_RDONLY);
 	while (num != 0)
 	{
-		printf("%s", original);
 		num = read(filedes, original, 21);
 		tets[i] = ft_strsplit(original, '\n');
 		i++;

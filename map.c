@@ -6,7 +6,7 @@
 /*   By: abao <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/21 15:25:37 by abao              #+#    #+#             */
-/*   Updated: 2018/08/26 19:30:23 by abao             ###   ########.fr       */
+/*   Updated: 2018/08/27 19:50:04 by abao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,7 @@ char	**make_map(int size, char **mapy)
 	free(mapy);
 	map = (char **)malloc(sizeof(char *) * size);
 	i = 0;
-	printf("test6\n");
-	printf("%d\n", size);
+	printf("size of map: %d\n", size);
 	while (i < size)
 	{
 		map[i] = ft_strnew(size);
@@ -46,6 +45,7 @@ char	**make_map(int size, char **mapy)
 		i++;
 	}
 	mapy = map;
+	print_map(map, size);
 	return (mapy);
 }
 

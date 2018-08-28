@@ -6,7 +6,7 @@
 /*   By: abao <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/16 15:22:01 by abao              #+#    #+#             */
-/*   Updated: 2018/08/24 18:16:09 by abao             ###   ########.fr       */
+/*   Updated: 2018/08/27 19:39:13 by abao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,12 @@ int		check(t_map map, t_tet tet, int x, int y)
 		if (map.field[x + tet.point[c].x][y + tet.point[c].y] == '.')
 			c++;
 		else
+		{
+			printf("Check test failed\n");
 			return (0);
+		}
 	}
+	printf("Check test pass\n");
 	return (1);
 }
 
@@ -62,9 +66,9 @@ int		backtrack(t_map map, t_tet tet, int x, int y)
 		{
 			while (y < map.size)
 			{
+				y++;
 				if (backtrack(map, tet, x, y) == 1)
 					return (1);
-				y++;
 			}
 			x++;
 			y = 0;
@@ -72,12 +76,12 @@ int		backtrack(t_map map, t_tet tet, int x, int y)
 	return (0);
 }
 
-int		try(t_map map, t_tet *tets)
+int		try(t_map map, t_tet *tets, int total)
 {
 	int	num;
 
 	num = 0;
-	while (tets != NULL)
+	while (num < total)
 	{
 		if (backtrack(map, tets[num], 0, 0) == 0)
 			return (0);
