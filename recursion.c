@@ -6,7 +6,7 @@
 /*   By: abao <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/16 15:22:01 by abao              #+#    #+#             */
-/*   Updated: 2018/08/27 19:39:13 by abao             ###   ########.fr       */
+/*   Updated: 2018/08/28 16:31:23 by abao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,11 @@ int		backtrack(t_map map, t_tet tet, int x, int y)
 			map.field[x + tet.point[c].x][y + tet.point[c].y] = tet.letter;
 			c++;
 		}
+		print_map(map.field, map.size);
+		return (1);
 	}
 	else
+	{
 		while (x < map.size)
 		{
 			while (y < map.size)
@@ -73,6 +76,7 @@ int		backtrack(t_map map, t_tet tet, int x, int y)
 			x++;
 			y = 0;
 		}
+	}
 	return (0);
 }
 
