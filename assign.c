@@ -6,7 +6,7 @@
 /*   By: abao <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 13:15:12 by abao              #+#    #+#             */
-/*   Updated: 2018/08/24 15:22:21 by abao             ###   ########.fr       */
+/*   Updated: 2018/08/28 20:15:49 by abao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,57 +18,58 @@
 
 #include "fillit.h"
 
-t_tet	*assign(char **tets)
+t_tet	*assign(char ***tets, int i)
 {
 	t_tet	*list;
 	char	letter;
 	int		x;
 	int		y;
+	int		z;
 	int		four;
-	int		fx;
 	int		fy;
-	int		listnum;
+	int		fz;
+	int		flag;
 
 	x = 0;
 	y = 0;
+	z = 0;
 	four = 0;
 	list = (t_tet *)malloc(26 * sizeof(t_tet));
 	letter = 'A';
-	listnum = 0;
-	while (tets[x])
+	flag = 0;
+	while (x < i)
 	{
-		while (tets[x][y] != '\0')
+		while (tets[x][y] != NULL)
 		{
-			if (tets[x][y] == '#')
+			while (tets[x][y][z] != '\0')
 			{
-				fx = x;
-				fy = y;
-				break ;
+				if (tets[x][y][z] == '#')
+				{
+					if (flag == 0)
+					{
+						fy = y;
+						fz = z;
+						flag = 1;
+					}
+					tets[x][y][z] = letter;
+					list[x].point[four].x = y - fy;
+					list[x].point[four].y = z - fz;
+					printf("Coord check: %d, %d\n", list[x].point[four].x, list[x].point[four].y);
+					four++;
+				}
+				z++;
 			}
+			printf("y = %d\n", y);
+			list[x].letter = letter;
+			z = 0;
 			y++;
+			four = 0;
 		}
 		x++;
 		y = 0;
-	}
-	while (tets[x])
-	{
-		while (tets[x][y] != '\0')
-		{
-			if (tets[x][y] == '#')
-			{
-				tets[x][y] = letter;
-				list[listnum].point[four].x = x - fx;
-				list[listnum].point[four].y = y - fy;
-				four++;
-			}
-			y++;
-		}
-		list[listnum].letter = letter;
+		z = 0;
+		flag = 0;
 		letter++;
-		y = 0;
-		x++;
-		four = 0;
-		listnum++;
 	}
 	return (list);
 }

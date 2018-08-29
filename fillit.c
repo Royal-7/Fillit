@@ -6,7 +6,7 @@
 /*   By: abao <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 17:31:35 by abao              #+#    #+#             */
-/*   Updated: 2018/08/28 17:06:09 by abao             ###   ########.fr       */
+/*   Updated: 2018/08/28 19:59:15 by abao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	printf("test4\n");
-	pieces = assign(tets);
+	pieces = assign(three, i);
 	printf("Assign check\n");
 	printf("Coords: %d, %d\n", pieces[0].point[0].x, pieces[0].point[0].y);
 	printf("Coords: %d, %d\n", pieces[0].point[1].x, pieces[0].point[1].y);

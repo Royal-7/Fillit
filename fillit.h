@@ -6,7 +6,7 @@
 /*   By: abao <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/28 12:11:14 by abao              #+#    #+#             */
-/*   Updated: 2018/08/27 19:33:23 by abao             ###   ########.fr       */
+/*   Updated: 2018/08/28 19:59:46 by abao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ typedef struct		s_map
 
 int					verify(char **tets);
 void				squSize(t_tet *tets, int i);
-t_tet				*assign(char **tets);
+t_tet				*assign(char ***tets, int i);
 void				tet_add(t_tet **list, t_tet *n);
 t_tet				*tet_new(void *content);
 char				**ft_strsplit(char const *s, char splitchars);
