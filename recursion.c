@@ -6,7 +6,7 @@
 /*   By: abao <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/16 15:22:01 by abao              #+#    #+#             */
-/*   Updated: 2018/08/28 16:31:23 by abao             ###   ########.fr       */
+/*   Updated: 2018/08/28 17:04:49 by abao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,10 @@ int		backtrack(t_map map, t_tet tet, int x, int y)
 	{
 		while (c < 4)
 		{
-			map.field[x + tet.point[c].x][y + tet.point[c].y] = tet.letter;
+			map.field[x + tet.point[c].x][y + tet.point[c].y] = 'A'; //Switch to tet.letter afterwards
 			c++;
 		}
+		printf("Letter: %c\n", tet.letter);
 		print_map(map.field, map.size);
 		return (1);
 	}
