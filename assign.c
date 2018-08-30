@@ -6,7 +6,7 @@
 /*   By: abao <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 13:15:12 by abao              #+#    #+#             */
-/*   Updated: 2018/08/28 20:15:49 by abao             ###   ########.fr       */
+/*   Updated: 2018/08/29 18:33:43 by abao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,9 @@ t_tet	*assign(char ***tets, int i)
 						fz = z;
 						flag = 1;
 					}
-					tets[x][y][z] = letter;
 					list[x].point[four].x = y - fy;
 					list[x].point[four].y = z - fz;
-					printf("Coord check: %d, %d\n", list[x].point[four].x, list[x].point[four].y);
+					printf("Coord check: point %d:  %d, %d\n", four, list[x].point[four].x, list[x].point[four].y);
 					four++;
 				}
 				z++;
@@ -63,12 +62,12 @@ t_tet	*assign(char ***tets, int i)
 			list[x].letter = letter;
 			z = 0;
 			y++;
-			four = 0;
 		}
 		x++;
 		y = 0;
 		z = 0;
 		flag = 0;
+		four = 0;
 		letter++;
 	}
 	return (list);
