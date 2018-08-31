@@ -6,7 +6,7 @@
 /*   By: abao <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/16 15:22:01 by abao              #+#    #+#             */
-/*   Updated: 2018/08/29 18:29:00 by abao             ###   ########.fr       */
+/*   Updated: 2018/08/30 17:55:22 by abao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int		check(t_map map, t_tet tet, int x, int y)
 	c = 0;
 	while (c < 4)
 	{
+		printf("Checking coords %d, %d\n", x + tet.point[c].x, y + tet.point[c].x);
 		if (map.field[x + tet.point[c].x][y + tet.point[c].y] == '.')
 			c++;
 		else
@@ -53,6 +54,7 @@ int		backtrack(t_map map, t_tet tet, int x, int y)
 	int	c;
 
 	c = 0;
+	printf("Looking for segfault\n");
 	if (check(map, tet, x, y) == 1)
 	{
 		while (c < 4)
@@ -90,6 +92,7 @@ int		try(t_map map, t_tet *tets, int total)
 	{
 		if (backtrack(map, tets[num], 0, 0) == 0)
 			return (0);
+		printf("Tet passed.\n");
 		num++;
 	}
 	return (1);
