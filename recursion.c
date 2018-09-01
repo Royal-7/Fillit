@@ -6,7 +6,7 @@
 /*   By: abao <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/16 15:22:01 by abao              #+#    #+#             */
-/*   Updated: 2018/08/30 17:55:22 by abao             ###   ########.fr       */
+/*   Updated: 2018/08/31 15:49:22 by abao             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,7 @@
 ** Uses the starting coordinates given and finds the points of the tet
 ** in the map. Sees if they are all empty and fills them in.
 ** If all empty, put them in and return success. If not, then
-** return fail so position can increment.
-** Param:
-** Return:
-** Where to account for need size increase?
+** return fail so position can increment. 
 */
 
 #include "fillit.h"
@@ -34,9 +31,9 @@ int		check(t_map map, t_tet tet, int x, int y)
 	int	c;
 
 	c = 0;
-	while (c < 4)
+	while (c != 4 && map.field[x + tet.point[c].x][y + tet.point[c].y])
 	{
-		printf("Checking coords %d, %d\n", x + tet.point[c].x, y + tet.point[c].x);
+		printf("Checking coords %d, %d\n", x + tet.point[c].x, y + tet.point[c].y);
 		if (map.field[x + tet.point[c].x][y + tet.point[c].y] == '.')
 			c++;
 		else
